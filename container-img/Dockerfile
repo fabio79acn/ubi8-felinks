@@ -11,7 +11,7 @@ RUN mkdir -p /tmp/git/github &&\
     git clone https://github.com/Moult/felinks.git   &&\
     cd felinks
 
-RUN cd /tmp/git/github/felinks
+RUN cd /tmp/git/github/felinks && ls -Zl . 
 
 RUN ./autogen.sh
 
