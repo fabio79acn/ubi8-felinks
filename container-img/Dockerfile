@@ -21,7 +21,7 @@ RUN cd /tmp/git/github/felinks && make
 
 USER 0
 
-RUN  microdnf remove make openssl-devel gcc automake git  -y
+RUN  microdnf remove make openssl-devel gcc automake -y
 
 USER 1001
 
