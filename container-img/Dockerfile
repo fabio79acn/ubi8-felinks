@@ -19,6 +19,10 @@ RUN cd /tmp/git/github/felinks && ./configure  --enable-256-colors  --enable-tru
 
 RUN cd /tmp/git/github/felinks && make
 
+USER 0
+
 RUN  dnf remove make openssl-devel gcc automake git  -y
+
+USER 1001
 
 CMD ["sleep","infinity"]
