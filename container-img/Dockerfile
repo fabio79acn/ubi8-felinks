@@ -11,12 +11,14 @@ RUN mkdir -p /tmp/git/github &&\
     git clone https://github.com/Moult/felinks.git   &&\
     cd felinks
 
-RUN cd /tmp/git/github/felinks && ls -Zl . 
+RUN cd /tmp/git/github/felinks && ./autogen.sh 
 
-RUN ./autogen.sh
+RUN cd /tmp/git/github/felinks && ./autogen.sh
 
-RUN ./configure  --enable-256-colors  --enable-true-color --with-openssl
+RUN cd /tmp/git/github/felinks && ./configure  --enable-256-colors  --enable-true-color --with-openssl
 
-RUN make
+RUN cd /tmp/git/github/felinks && make
+
+RUN  dnf remove make openssl-devel gcc automake git  -y
 
 CMD ["sleep","infinity"]
