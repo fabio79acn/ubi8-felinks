@@ -1,8 +1,8 @@
-FROM registry.access.redhat.com/ubi8:latest
+FROM registry.access.redhat.com/ubi8-minimal:latest
 
 USER 0
 
-RUN dnf install make openssl-devel gcc automake git  -y
+RUN microdnf install make openssl-devel gcc automake git  -y
 
 USER 1001
 
@@ -21,7 +21,7 @@ RUN cd /tmp/git/github/felinks && make
 
 USER 0
 
-RUN  dnf remove make openssl-devel gcc automake git  -y
+RUN  microdnf remove make openssl-devel gcc automake git  -y
 
 USER 1001
 
