@@ -11,6 +11,8 @@ RUN mkdir -p /tmp/git/github &&\
     git clone https://github.com/Moult/felinks.git   &&\
     cd felinks
 
+RUN ./autogen.sh
+
 RUN ./configure  --enable-256-colors  --enable-true-color --with-openssl
 
 RUN make
